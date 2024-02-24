@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar Menu for Admin Dashboard | CodingNepal</title>
+    <link rel="stylesheet" href="./suggestions.css" />
+    <!-- Fontawesome CDN Link -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  </head>
+  <body>
+    <gmpx-api-loader key="KEY"> </gmpx-api-loader> 
+    <gmp-map 
+    center="-36.8422,174.7544"
+    zoom="15" 
+    map-id="DEMO_MAP_ID"> 
+    </gmp-map>
+    <gmpx-place-overview p1ace="ChIJVVVVnv1HDWGRwyod-_ddhAw"> </gmpx-place-overview>
+    <nav class="sidebar">
+      <a href="../index.html" class="logo">Highway Buddy</a>
+      <div class="menu-content">
+        <ul class="menu-items">
+          <div class="menu-title">Road Services</div>
+          <li class="item">
+            <a href="./services.html">Services</a>
+          </li>
+          <li class="item">
+            <a href="./alternatevehicle.html">Alternative Vehicles</a>
+          </li>
+          <li class="item">
+            <a href="./onlinefuel.html">Online Fuel Delivery</a>
+          </li>
+          <li class="item">
+            <a href="./suggestions.html">Suggestions</a>
+          </li>     
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="navbar">
+      <i class="fa-solid fa-bars" id="sidebar-close"></i>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+        <h1>FAQ - Road Emergencies</h1>
+    
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer(1)">What should I do if my car breaks down on the road?</div>
+            <div class="answer" id="answer1">If your car breaks down on the road, try to move it to a safe location, such as the shoulder of the road or a nearby parking lot. Turn on your hazard lights to alert other drivers, and if possible, raise the hood of your car to signal that you need assistance. Contact a roadside assistance service or emergency services for help.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer(2)">What should I do if I get a flat tire while driving?</div>
+            <div class="answer" id="answer2">If you get a flat tire while driving, safely pull over to the side of the road or a designated emergency stopping area. Turn on your hazard lights and apply the parking brake. Use caution when changing the tire, and if you're unable to do so yourself, contact a roadside assistance service for help.</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer(3)">What should I do if I'm involved in a car accident?</div>
+            <div class="answer" id="answer3">If you're involved in a car accident, first check yourself and others for injuries. If anyone is injured, call emergency services immediately. Move your vehicle to a safe location if possible, and exchange information with the other parties involved in the accident. Take photos of the scene and gather witness contact information. Contact your insurance company to report the accident.</div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer(4)">What should I do if my car runs out of gas on the road?</div>
+            <div class="answer" id="answer4">If your car runs out of gas on the road, safely pull over to the side of the road or a nearby parking lot. Turn on your hazard lights to alert other drivers. If you have access to a gas can and a nearby gas station, you can attempt to walk to the gas station to purchase fuel. Alternatively, contact a roadside assistance service for fuel delivery.</div>
+        </div>
+    
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer(5)">What should I do if my car battery dies?</div>
+            <div class="answer" id="answer5">If your car battery dies, safely pull over to the side of the road or a parking lot. Turn off any unnecessary electrical devices to conserve battery power. If you have access to jumper cables and another vehicle with a working battery, you can attempt to jump-start your car. Alternatively, contact a roadside assistance service for a jump-start.</div>
+        </div>
+    </div>
+    </main>
+    <script>
+    function toggleAnswer(id) {
+        var answer = document.getElementById("answer" + id);
+        answer.style.display = (answer.style.display === "none") ? "block" : "none";
+    }
+</script>
+    <script src="./road.js"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar Menu for Admin Dashboard | CodingNepal</title>
+    <link rel="stylesheet" href="./services.css" />
+    <!-- Fontawesome CDN Link -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  </head>
+  <body>
+    <gmpx-api-loader key="KEY"> </gmpx-api-loader> 
+    <gmp-map 
+    center="-36.8422,174.7544"
+    zoom="15" 
+    map-id="DEMO_MAP_ID"> 
+    </gmp-map>
+    <gmpx-place-overview p1ace="ChIJVVVVnv1HDWGRwyod-_ddhAw"> </gmpx-place-overview>
+    <nav class="sidebar">
+      <a href="../index.html" class="logo">Highway Buddy</a>
+      <div class="menu-content">
+        <ul class="menu-items">
+          <div class="menu-title">Road Services</div>
+          <li class="item">
+            <a href="./services.html">Services</a>
+          </li>
+          <li class="item">
+            <a href="./alternatevehicle.html">Alternative Vehicles</a>
+          </li>
+          <li class="item">
+            <a href="./onlinefuel.html">Online Fuel Delivery</a>
+          </li>
+          <li class="item">
+            <a href="./suggestions.html">Suggestions</a>
+          </li>     
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="navbar">
+      <i class="fa-solid fa-bars" id="sidebar-close"></i>
+    </nav>
+
+    <main class="main">
+      <div class="ash">
+      
+      <div class="part1">
+        <a href="./mechanic.html"><h3>Mechanical Shops</h3></a>
+      </div>
+      <div class="part2">
+        <a href="./porter.html"><h3>Porter Booking</h3></a>
+      </div>
+    </div>
+
+    </main>
+
+    <script src="./services.js"></script>
+  </body>
+</html>

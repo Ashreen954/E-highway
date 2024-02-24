@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="./onlinedoc.css">
+   
+</head>
+<body>
+    <nav class="sidebar">
+        <a href="../index.html" class="logo">Highway Buddy</a>
+        <div class="menu-content">
+            <ul class="menu-items">
+                <div class="menu-title">Medical Services</div>
+                <li class="item">
+                  <a href="./medire.html">Nearest Hospitals</a>
+                </li>
+                <li class="item">
+                  <a href="./onlinedoc.html">Online Consultation</a>
+                </li>
+                <li class="item">
+                  <a href="./medidelivery.html">Medicines</a>
+                </li>
+                <li class="item">
+                  <a href="./pet.html">Pet Clinics</a>
+                </li>     
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="navbar">
+        <i class="fa-solid fa-bars" id="sidebar-close"></i>
+    </nav>
+
+    <main class="main">
+        <!-- <div id="map"></div> -->
+        <div id="booking-form">
+            <form id="fuel-booking-form">
+                <div >
+                    <h2>Online Doctor Consultation</h2>
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                          <div class="form-group">
+                            <label for="gender">Gender:</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="symptoms">Symptoms:</label>
+                            <textarea id="symptoms" name="symptoms" placeholder="Describe your symptoms"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">Additional Comments:</label>
+                            <textarea id="comments" name="comments" placeholder="Enter any additional comments"></textarea>
+                        </div>
+                        <button type="submit" id="submit">Submit</button>
+                    </div>
+                    </form>
+       
+    </main>
+    <script>
+          document.getElementById('submit').onclick = function(event) {
+            event.preventDefault();
+            alert('You will recieve a call in 10min');
+        };
+    </script>
+    <script src="./medical.js"></script>
+</body>
+</html>

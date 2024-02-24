@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    height: 100%;
+    width: 260px;
+    background: #11101d;
+    padding: 15px;
+    z-index: 99;
+  }
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+.logo {
+    font-size: 24px;
+    padding: 0 15px;
+}
+.menu-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-top: 40px;
+    overflow-y: scroll;
+  }
+  .menu-content::-webkit-scrollbar {
+    display: none;
+  }
+  .menu-items {
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    transition: all 0.4s ease;
+  }
+  .menu-title {
+    color: #fff;
+    font-size: 28px;
+    padding: 15px 16px;
+  }
+  .item a{
+    padding: 16px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 20px;
+  }
+  
+  .item a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+.navbar,
+.main {
+  left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+  z-index: 1000;
+}
+.sidebar.close ~ .navbar,
+.sidebar.close ~ .main {
+  left: 0;
+  width: 100%;
+}
+.navbar {
+  position: fixed;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 30px;
+  background: #5F8D4E;
+  cursor: pointer;
+}
+.navbar #sidebar-close {
+  cursor: pointer;
+}
+.main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: 100;
+  background: #e7ceb7;
+}
+h1{
+  text-align: center;
+}
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
+input[type="text"], select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+button {
+  background-color: #4CAF50; /* Same color for both buttons */
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px; /* Add space between buttons */
+}
+button:hover {
+  background-color: #45a049; /* Darker color on hover */
+}
+
+
+/* Map and Form CSS */
+#map {
+    height: 400px;
+    margin-bottom: 20px;
+    width: 600px;
+}
+

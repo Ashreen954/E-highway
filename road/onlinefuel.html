@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="./onlinefuel.css">
+   
+</head>
+<body>
+    <nav class="sidebar">
+        <a href="../index.html" class="logo">Highway Buddy</a>
+        <div class="menu-content">
+            <ul class="menu-items">
+                <div class="menu-title">Road Services</div>
+                <li class="item">
+                    <a href="./services.html">Services</a>
+                </li>
+                <li class="item">
+                    <a href="./alternatevehicle.html">Alternative Vehicles</a>
+                </li>
+                <li class="item">
+                    <a href="./onlinefuel.html">Online Fuel Delivery</a>
+                </li>
+                <li class="item">
+                    <a href="./suggestions.html">Suggestions</a>
+                </li>     
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="navbar">
+        <i class="fa-solid fa-bars" id="sidebar-close"></i>
+    </nav>
+
+    <main class="main">
+
+        <div id="map"></div>
+
+        <div id="booking-form">
+            <form id="fuel-booking-form">
+                <label for="fuel_type">Type of Fuel:</label>
+                <select name="fuel_type" id="fuel_type">
+                    <option value="Diesel">Diesel</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Gas">Gas</option>
+                </select>
+            
+                <label for="fuel_station">Fuel Station:</label>
+                <select name="fuel_station" id="fuel_station">
+                    <option value="Bharath Petroleum">Bharath Petroleum</option>
+                    <option value="HP">HP (Hindustan Petroleum)</option>
+                    <option value="Indian Oil">Indian Oil</option>
+                </select>
+            
+                <label for="quantity">Quantity (in litres):</label>
+                <input type="text" id="quantity" name="quantity">
+            
+                <button id="shareCurrentLocation">Share Current Location</button>
+            
+                <button id="payButton">Pay</button>
+            
+            </form>
+        </div>
+    </main>
+    <script>
+        document.getElementById('payButton').onclick = function(event) {
+            event.preventDefault();
+            alert('Payment has been successfully done!');
+        };
+        document.getElementById('shareCurrentLocation').onclick = function(event) {
+            event.preventDefault();
+            alert('Your current Location has been successfully shared!');
+        };
+    </script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([0, 0], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }).addTo(map);
+
+        function onLocationFound(e) {
+            var radius = e.accuracy / 2;
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You are within " + radius + " meters from this point").openPopup();
+            map.setView(e.latlng, 13);
+            
+            // Fill form fields with current location
+            document.getElementById("latitude").value = e.latlng.lat;
+            document.getElementById("longitude").value = e.latlng.lng;
+        }
+
+        function onLocationError(e) {
+            alert("Location access denied or unavailable");
+        }
+
+        map.on('locationfound', onLocationFound);
+        map.on('locationerror', onLocationError);
+        map.locate({ setView: true, maxZoom: 16 });
+    </script>
+</body>
+</html>

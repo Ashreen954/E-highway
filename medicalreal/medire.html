@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="./medri.css">
+   
+</head>
+<body>
+    <nav class="sidebar">
+        <a href="../index.html" class="logo">Highway Buddy</a>
+        <div class="menu-content">
+            <ul class="menu-items">
+                <div class="menu-title">Medical Services</div>
+                <li class="item">
+                  <a href="./medire.html">Nearest Hospitals</a>
+                </li>
+                <li class="item">
+                  <a href="./onlinedoc.html">Online Consultation</a>
+                </li>
+                <li class="item">
+                  <a href="./medidelivery.html">Medicines</a>
+                </li>
+                <li class="item">
+                  <a href="./pet.html">Pet Clinics</a>
+                </li>     
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="navbar">
+        <i class="fa-solid fa-bars" id="sidebar-close"></i>
+    </nav>
+    
+    <main class="main">
+        <div class="part1"><h1>Nearest Hospitals</h1></div>
+        
+        <div id="map"></div>
+       
+    </main>
+    
+    <script>
+        document.getElementById('payButton').onclick = function(event) {
+            event.preventDefault();
+            alert('Payment has been successfully done!');
+        };
+        document.getElementById('shareCurrentLocation').onclick = function(event) {
+            event.preventDefault();
+            alert('Your current Location has been successfully shared!');
+        };
+    </script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      // Initialize the map
+      var map = L.map('map').setView([0, 0], 13); // Initial view will be centered at (0, 0)
+    
+      // Load OpenStreetMap tiles
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19
+      }).addTo(map);
+    
+      // Function to find nearest hospitals
+      function findNearestHospitals(lat, lng) {
+          // Here you would use an API to find the nearest hospitals based on the provided latitude and longitude
+          // This is just a placeholder function for demonstration purposes
+          // You should replace this with a real API call
+          console.log("Finding nearest hospitals from location:", lat, lng);
+      }
+    
+      // Function to handle location update
+      function onLocationFound(e) {
+          var radius = e.accuracy / 2;
+          L.marker(e.latlng).addTo(map)
+              .bindPopup("You are within " + radius + " meters from this point").openPopup();
+          map.setView(e.latlng, 13); // Update map view to current location
+          findNearestHospitals(e.latlng.lat, e.latlng.lng); // Call function to find nearest hospitals
+      }
+    
+      // Function to handle location error
+      function onLocationError(e) {
+          alert("Location access denied or unavailable");
+      }
+    
+      // Request location information from the browser
+      map.on('locationfound', onLocationFound);
+      map.on('locationerror', onLocationError);
+      
+      // Use Geolocation API to get user's location
+      navigator.geolocation.getCurrentPosition(function(position) {
+          var lat = position.coords.latitude;
+          var lng = position.coords.longitude;
+          map.setView([lat, lng], 13); // Set map view to user's location
+          onLocationFound({latlng: {lat: lat, lng: lng}}); // Call location found function
+      }, function() {
+          alert("Location access denied or unavailable");
+      });
+    
+      // Toggle sidebar
+      document.getElementById('sidebar-open').addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('active');
+      });
+    </script>
+     <script src="./medical.js"></script>
+</body>
+</html>
